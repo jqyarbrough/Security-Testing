@@ -15,17 +15,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.17  
+        uses: actions/checkout@v4
 
       - name: Set up OWASP ZAP
-        uses: zaproxy/action-baseline@v0.12.0
+        uses: zaproxy/action-baseline@v0.0.12  
         with:
           target: 'https://juice-shop.herokuapp.com/#'  
         env:
-          ZAP_API_KEY: ${{ secrets.ZAP_API_KEY }}   
+          ZAP_API_KEY: ${{ secrets.ZAP_API_KEY }}  
 
       - name: Upload ZAP Report
-        uses: actions/upload-artifact@v4.17  
+        uses: actions/upload-artifact@v4
         with:
           name: zap-report
           path: zap-baseline.html
